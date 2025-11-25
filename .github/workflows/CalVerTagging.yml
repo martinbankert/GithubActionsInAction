@@ -1,4 +1,4 @@
-name: CalVer Tagging
+name: Calendar Versioning Tagging
 
 on:
   push:

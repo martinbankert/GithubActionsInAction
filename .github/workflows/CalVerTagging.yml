@@ -20,16 +20,10 @@ jobs:
         with:
           fetch-depth: 0   # important: needed to see all tags
 
-      - name: Set up git
-        run: |
-          git config user.name "GitHub Actions"
-          git config user.email "actions@github.com"
-
       - name: Compute new tag
         id: calver
         run: |
-          YEAR=$(date +%Y)
-          MONTH=$(date +%m)
+          read YEAR MONTH <<< "$(date '+%Y %m')"
 
           LAST_TAG=$(git tag --list "$YEAR.$MONTH.*" | sort -V | tail -n 1)
 
